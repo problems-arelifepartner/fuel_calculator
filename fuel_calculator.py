@@ -1,14 +1,6 @@
 def calculate_trip_cost(mileage: float, one_way_distance: float, fuel_rate: float) -> tuple[float, float, float]:
     """
     Calculates the total distance, fuel required, and total cost for a round trip.
-    
-    Args:
-        mileage: The vehicle's mileage (km per litre).
-        one_way_distance: The distance to the destination (km).
-        fuel_rate: The cost of fuel per litre.
-        
-    Returns:
-        A tuple containing (total_distance, fuel_needed, total_cost).
     """
     # Multiply by 2 for the round trip (going and coming back)
     total_distance = one_way_distance * 2
@@ -22,6 +14,12 @@ def calculate_trip_cost(mileage: float, one_way_distance: float, fuel_rate: floa
     return total_distance, fuel_needed, total_cost
 
 def main() -> None:
+    # ANSI color codes
+    RED = "\033[91m"
+    YELLOW = "\033[93m"
+    GREEN = "\033[92m"
+    RESET = "\033[0m"  # Resets the color back to normal
+
     print("========================================")
     print("      Trip Fuel Cost Calculator")
     print("========================================\n")
@@ -40,13 +38,14 @@ def main() -> None:
         # Performing the calculations
         total_distance, fuel_needed, total_cost = calculate_trip_cost(mileage, distance, fuel_rate)
 
-        # Displaying the results with 2 decimal places for neatness
+        # Displaying the results with colors and 2 decimal places
         print("\n========================================")
         print("             Trip Summary")
         print("========================================")
-        print(f"Total Round-Trip Distance : {total_distance:.2f} km")
-        print(f"Total Fuel Required       : {fuel_needed:.2f} litres")
-        print(f"Total Estimated Cost      : ₹{total_cost:.2f}")
+        # Applying colors specifically to the result values
+        print(f"Total Round-Trip Distance : {RED}{total_distance:.2f} km{RESET}")
+        print(f"Total Fuel Required       : {YELLOW}{fuel_needed:.2f} litres{RESET}")
+        print(f"Total Estimated Cost      : {GREEN}₹{total_cost:.2f}{RESET}")
         print("========================================\n")
 
     except ValueError:
