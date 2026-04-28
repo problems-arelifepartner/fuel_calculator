@@ -11,10 +11,10 @@ python fuel_calculator.py
 
 git clone https://github.com/problems-arelifepartner/fuel_calculator
 
+cd fuel_calculator
 
 chmod +x install_buildozer.sh
 
-cd fuel_calculator
 
 ./install_buildozer.sh
 
